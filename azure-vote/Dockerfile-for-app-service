@@ -1,4 +1,4 @@
-FROM    tiangolo/uwsgi-nginx-flask:python3.6
+FROM    tiangolo/uwsgi-nginx-flask:python3.12
 
 COPY sshd_config /etc/ssh/
 COPY app_init.supervisord.conf /etc/supervisor/conf.d
@@ -12,7 +12,7 @@ RUN  mkdir -p /home/LogFiles \
 RUN  pip install redis
 
 EXPOSE 2222 80
- 
+
 ADD     /azure-vote /app
 
 ENV PORT 80
